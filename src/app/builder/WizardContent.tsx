@@ -130,7 +130,10 @@ export default function WizardContent() {
 
                     {/* Step content */}
                     <div className="flex-1 overflow-y-auto">
-                        <div className="max-w-2xl mx-auto px-6 py-8 animate-fade-in" key={state.currentStep}>
+                        <div
+                            className={`${state.currentStep === 0 ? 'max-w-5xl' : 'max-w-3xl'} mx-auto px-6 py-8 animate-fade-in`}
+                            key={state.currentStep}
+                        >
                             <div className="mb-6">
                                 <div className="flex items-center gap-2 mb-1">
                                     <span className="text-xl">{STEPS[state.currentStep].icon}</span>

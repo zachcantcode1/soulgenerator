@@ -16,10 +16,7 @@ export default function Home() {
             priority
           />
         </div>
-        <div className="flex items-center gap-6">
-          <Link href="/builder" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
-            Builder
-          </Link>
+        <div className="flex items-center">
           <Link
             href="/builder"
             className="px-4 py-2 bg-accent text-white rounded-lg text-sm font-medium hover:bg-accent/90 transition-all glow"
@@ -154,8 +151,10 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="border-t border-card-border py-8 text-center text-xs text-muted">
-        <p>Soul Generator — Open source tool for crafting AI agent personas</p>
-        <p className="mt-1">Built on the <a href="https://github.com/clawsouls/soulspec/blob/main/soul-spec-v0.5.md" target="_blank" rel="noopener" className="text-accent-light hover:underline">SoulSpec 0.5</a> standard</p>
+        <p>Soul Generator — Tool for crafting AI agent personas</p>
+        <p className="mt-1">
+          SoulSpec <a href="https://github.com/clawsouls/soulspec/blob/main/soul-spec-v0.5.md" target="_blank" rel="noopener" className="text-accent-light hover:underline">0.5</a> · Built by <a href="https://x.com/zachknows" target="_blank" rel="noopener" className="text-accent-light hover:underline">@zachknows</a>
+        </p>
       </footer>
     </div>
   );
