@@ -73,7 +73,7 @@ export default function WizardContent() {
     const preview = generateSoulMd(state.data);
 
     return (
-        <div className="min-h-screen bg-background flex flex-col">
+        <div className="min-h-screen h-screen bg-background flex flex-col">
             {/* Top bar */}
             <header className="border-b border-card-border px-4 py-3 flex items-center justify-between flex-shrink-0">
                 <div className="flex items-center gap-3">
@@ -101,7 +101,7 @@ export default function WizardContent() {
 
             <div className="flex flex-1 overflow-hidden">
                 {/* Main content area */}
-                <div className={`flex flex-col min-w-0 transition-all duration-300 ${showPreview ? 'w-1/2' : 'flex-1'}`}>
+                <div className={`relative flex flex-col min-w-0 overflow-hidden transition-all duration-300 ${showPreview ? 'w-1/2' : 'flex-1'}`}>
                     {/* Progress bar */}
                     <div className="px-4 py-3 border-b border-card-border flex-shrink-0 overflow-hidden">
                         <div className="flex items-center gap-1">
@@ -131,7 +131,7 @@ export default function WizardContent() {
                     {/* Step content */}
                     <div className="flex-1 overflow-y-auto">
                         <div
-                            className={`${state.currentStep === 0 ? 'max-w-5xl' : 'max-w-3xl'} mx-auto px-6 py-8 animate-fade-in`}
+                            className={`${state.currentStep === 0 ? 'max-w-5xl' : 'max-w-3xl'} mx-auto px-6 py-8 pb-32 animate-fade-in`}
                             key={state.currentStep}
                         >
                             <div className="mb-6">
@@ -146,7 +146,7 @@ export default function WizardContent() {
                     </div>
 
                     {/* Navigation buttons */}
-                    <div className="border-t border-card-border px-6 py-4 flex items-center justify-between flex-shrink-0">
+                    <div className="absolute bottom-0 left-0 right-0 border-t border-card-border px-6 py-4 flex items-center justify-between flex-shrink-0 bg-background/95 backdrop-blur z-10">
                         <button
                             onClick={() => dispatch({ type: 'PREV_STEP' })}
                             disabled={isFirstStep}
