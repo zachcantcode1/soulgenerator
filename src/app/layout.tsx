@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Soul Generator — Build Your AI Agent's SOUL.md",
+  title: "Soul Generator",
   description: "Interactive tool to build, refine, and export perfect SOUL.md files for AI agents. SoulSpec 0.5 compatible.",
   icons: {
     icon: "/sg.svg",
