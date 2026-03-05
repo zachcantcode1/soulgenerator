@@ -35,14 +35,6 @@ export default function WizardContent() {
     const resetCancelRef = useRef<HTMLButtonElement | null>(null);
     const resetConfirmRef = useRef<HTMLButtonElement | null>(null);
 
-    if (!state.isLoaded) {
-        return (
-            <div className="min-h-screen flex items-center justify-center bg-background">
-                <div className="text-muted-foreground">Loading...</div>
-            </div>
-        );
-    }
-
     useEffect(() => {
         if (!showResetConfirm) return;
         resetCancelRef.current?.focus();
@@ -66,6 +58,14 @@ export default function WizardContent() {
         document.addEventListener('keydown', onKeyDown);
         return () => document.removeEventListener('keydown', onKeyDown);
     }, [showResetConfirm]);
+
+    if (!state.isLoaded) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-background">
+                <div className="text-muted-foreground">Loading...</div>
+            </div>
+        );
+    }
 
     const CurrentStep = STEP_COMPONENTS[state.currentStep];
     const isLastStep = state.currentStep === STEPS.length - 1;
