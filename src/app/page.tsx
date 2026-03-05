@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
@@ -5,9 +6,15 @@ export default function Home() {
     <div className="min-h-screen hero-gradient">
       {/* Navigation */}
       <nav className="flex items-center justify-between px-6 py-4 max-w-6xl mx-auto">
-        <div className="flex items-center gap-2">
-          <span className="text-2xl">👻</span>
-          <span className="text-lg font-semibold text-foreground">Soul Generator</span>
+        <div className="flex items-center">
+          <Image
+            src="/sg.png"
+            alt="Soul Generator logo"
+            width={28}
+            height={28}
+            className="rounded-full"
+            priority
+          />
         </div>
         <div className="flex items-center gap-6">
           <Link href="/builder" className="text-muted-foreground hover:text-foreground transition-colors text-sm">

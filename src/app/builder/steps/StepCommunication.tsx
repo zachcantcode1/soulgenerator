@@ -20,7 +20,7 @@ const EMOJI_OPTIONS = [
 
 export default function StepCommunication() {
     const { state, dispatch } = useWizard();
-    const { toneFormalitiy, verbosity, humorEnabled, humorStyle, emojiUsage, bannedPhrases } = state.data;
+    const { toneFormality, verbosity, humorEnabled, humorStyle, emojiUsage, bannedPhrases } = state.data;
     const [phraseInput, setPhraseInput] = useState('');
 
     const update = (payload: Record<string, unknown>) => {
@@ -39,7 +39,7 @@ export default function StepCommunication() {
         update({ bannedPhrases: bannedPhrases.filter(p => p !== phrase) });
     };
 
-    const toneLabel = toneFormalitiy < 25 ? 'Very casual' : toneFormalitiy < 50 ? 'Relaxed' : toneFormalitiy < 75 ? 'Professional' : 'Formal';
+    const toneLabel = toneFormality < 25 ? 'Very casual' : toneFormality < 50 ? 'Relaxed' : toneFormality < 75 ? 'Professional' : 'Formal';
     const verbosityLabel = verbosity < 25 ? 'Terse' : verbosity < 50 ? 'Concise' : verbosity < 75 ? 'Balanced' : 'Thorough';
 
     return (
@@ -54,8 +54,8 @@ export default function StepCommunication() {
                     type="range"
                     min={0}
                     max={100}
-                    value={toneFormalitiy}
-                    onChange={(e) => update({ toneFormalitiy: Number(e.target.value) })}
+                    value={toneFormality}
+                    onChange={(e) => update({ toneFormality: Number(e.target.value) })}
                     className="w-full"
                 />
                 <div className="flex justify-between text-xs text-muted mt-1">

@@ -10,7 +10,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/SoulSpec-0.5-0d9488?style=flat-square" alt="SoulSpec 0.5" />
-  <img src="https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js" alt="Next.js 15" />
+  <img src="https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js" alt="Next.js 16" />
   <img src="https://img.shields.io/badge/Tailwind-4-38bdf8?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS 4" />
   <img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="MIT License" />
 </p>
@@ -76,7 +76,7 @@ Open [http://localhost:3000](http://localhost:3000) and start building.
 
 | Layer | Technology |
 |-------|-----------|
-| Framework | [Next.js 15](https://nextjs.org/) (App Router, Turbopack) |
+| Framework | [Next.js 16](https://nextjs.org/) (App Router, Turbopack) |
 | Styling | [Tailwind CSS 4](https://tailwindcss.com/) |
 | Language | TypeScript |
 | Markdown | [react-markdown](https://github.com/remarkjs/react-markdown) |

@@ -130,11 +130,11 @@ function generateCommunicationStyle(data: SoulData): string {
     const lines: string[] = [];
 
     // Tone
-    if (data.toneFormalitiy < 25) {
+    if (data.toneFormality < 25) {
         lines.push('- **Tone:** Very casual and conversational. Write like a knowledgeable friend texting.');
-    } else if (data.toneFormalitiy < 50) {
+    } else if (data.toneFormality < 50) {
         lines.push('- **Tone:** Relaxed and approachable. Professional but not stiff.');
-    } else if (data.toneFormalitiy < 75) {
+    } else if (data.toneFormality < 75) {
         lines.push('- **Tone:** Professional and measured. Clear without being cold.');
     } else {
         lines.push('- **Tone:** Formal and precise. Academic-level clarity and structure.');

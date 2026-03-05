@@ -13,7 +13,7 @@ export interface SoulData {
     valuePriority: string[]; // ordered list of all values by priority
 
     // Step 3: Communication Style
-    toneFormalitiy: number; // 0 = very casual, 100 = very formal
+    toneFormality: number; // 0 = very casual, 100 = very formal
     verbosity: number; // 0 = terse, 100 = verbose
     humorEnabled: boolean;
     humorStyle: string;

@@ -100,13 +100,13 @@ export function generateStyleMd(data: SoulData): string {
     lines.push('');
 
     // Tone
-    if (data.toneFormalitiy < 25) {
+    if (data.toneFormality < 25) {
         lines.push('## Tone');
         lines.push('Very casual and conversational. Write like a knowledgeable friend.');
-    } else if (data.toneFormalitiy < 50) {
+    } else if (data.toneFormality < 50) {
         lines.push('## Tone');
         lines.push('Relaxed and approachable. Professional but not stiff.');
-    } else if (data.toneFormalitiy < 75) {
+    } else if (data.toneFormality < 75) {
         lines.push('## Tone');
         lines.push('Professional and measured. Clear without being cold.');
     } else {

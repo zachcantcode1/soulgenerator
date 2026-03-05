@@ -14,7 +14,7 @@ import StepMemory from './steps/StepMemory';
 import StepErrorHandling from './steps/StepErrorHandling';
 import StepExpertise from './steps/StepExpertise';
 import PreviewPanel from './PreviewPanel';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const STEP_COMPONENTS = [
     StepArchetype,
@@ -32,6 +32,8 @@ export default function WizardContent() {
     const { state, dispatch } = useWizard();
     const [showPreview, setShowPreview] = useState(false);
     const [showResetConfirm, setShowResetConfirm] = useState(false);
+    const resetCancelRef = useRef<HTMLButtonElement | null>(null);
+    const resetConfirmRef = useRef<HTMLButtonElement | null>(null);
 
     if (!state.isLoaded) {
         return (
@@ -40,6 +42,30 @@ export default function WizardContent() {
             </div>
         );
     }
+
+    useEffect(() => {
+        if (!showResetConfirm) return;
+        resetCancelRef.current?.focus();
+        const onKeyDown = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') {
+                setShowResetConfirm(false);
+            }
+            if (event.key !== 'Tab') return;
+            const focusable = [resetCancelRef.current, resetConfirmRef.current].filter(Boolean) as HTMLButtonElement[];
+            if (focusable.length === 0) return;
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
+        };
+        document.addEventListener('keydown', onKeyDown);
+        return () => document.removeEventListener('keydown', onKeyDown);
+    }, [showResetConfirm]);
 
     const CurrentStep = STEP_COMPONENTS[state.currentStep];
     const isLastStep = state.currentStep === STEPS.length - 1;
@@ -51,9 +77,8 @@ export default function WizardContent() {
             {/* Top bar */}
             <header className="border-b border-card-border px-4 py-3 flex items-center justify-between flex-shrink-0">
                 <div className="flex items-center gap-3">
-                    <Link href="/" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-                        <span className="text-xl">👻</span>
-                        <span className="text-sm font-medium hidden sm:inline">Soul Generator</span>
+                    <Link href="/" className="flex items-center text-muted-foreground hover:text-foreground transition-colors">
+                        <img src="/sg.png" alt="Soul Generator logo" className="w-5 h-5 rounded-full" />
                     </Link>
                     <span className="text-card-border">/</span>
                     <span className="text-sm text-foreground font-medium">Builder</span>
@@ -161,17 +186,29 @@ export default function WizardContent() {
             {/* Reset confirmation modal */}
             {showResetConfirm && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-                    <div className="glass-card p-6 max-w-sm w-full mx-4 animate-fade-in">
-                        <h3 className="text-base font-semibold text-foreground mb-2">Reset all progress?</h3>
-                        <p className="text-sm text-muted-foreground mb-6">This will clear all your answers and start from scratch. This cannot be undone.</p>
+                    <div
+                        role="dialog"
+                        aria-modal="true"
+                        aria-labelledby="reset-dialog-title"
+                        aria-describedby="reset-dialog-description"
+                        className="glass-card p-6 max-w-sm w-full mx-4 animate-fade-in"
+                    >
+                        <h3 id="reset-dialog-title" className="text-base font-semibold text-foreground mb-2">
+                            Reset all progress?
+                        </h3>
+                        <p id="reset-dialog-description" className="text-sm text-muted-foreground mb-6">
+                            This will clear all your answers and start from scratch. This cannot be undone.
+                        </p>
                         <div className="flex items-center justify-end gap-3">
                             <button
+                                ref={resetCancelRef}
                                 onClick={() => setShowResetConfirm(false)}
                                 className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground border border-card-border rounded-lg transition-all"
                             >
                                 Cancel
                             </button>
                             <button
+                                ref={resetConfirmRef}
                                 onClick={() => {
                                     dispatch({ type: 'RESET' });
                                     setShowResetConfirm(false);

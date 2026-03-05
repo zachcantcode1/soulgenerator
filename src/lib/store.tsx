@@ -78,7 +78,13 @@ export function WizardProvider({ children }: { children: ReactNode }) {
             const saved = localStorage.getItem(STORAGE_KEY);
             if (saved) {
                 const parsed = JSON.parse(saved);
-                dispatch({ type: 'LOAD_STATE', state: { ...parsed, isLoaded: true } });
+                const migratedData = parsed?.data && typeof parsed.data === 'object'
+                    ? {
+                        ...parsed.data,
+                        toneFormality: parsed.data.toneFormality ?? parsed.data.toneFormalitiy ?? 50,
+                    }
+                    : parsed.data;
+                dispatch({ type: 'LOAD_STATE', state: { ...parsed, data: migratedData, isLoaded: true } });
             } else {
                 dispatch({ type: 'LOAD_STATE', state: { ...initialState, isLoaded: true } });
             }
