@@ -274,3 +274,108 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
 }
+
+.testimonial-fade {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.testimonial-fade::before,
+.testimonial-fade::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4rem;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.testimonial-fade::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--background), transparent);
+}
+
+.testimonial-fade::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--background), transparent);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  padding-inline: 1.5rem;
+}
+
+.marquee-left {
+  animation: marquee-left 34s linear infinite;
+}
+
+.marquee-right {
+  animation: marquee-right 38s linear infinite;
+}
+
+.testimonial-card {
+  width: min(22rem, calc(100vw - 7rem));
+  min-height: 9rem;
+  padding: 1.25rem;
+  flex-shrink: 0;
+}
+
+.comparison-card {
+  min-height: 100%;
+}
+
+.comparison-card-active {
+  border-color: rgba(94, 234, 212, 0.28);
+  box-shadow: 0 0 0 1px rgba(94, 234, 212, 0.12), 0 0 36px rgba(13, 148, 136, 0.08);
+}
+
+.comparison-card-dim {
+  opacity: 0.82;
+}
+
+.typing-caret {
+  display: inline-block;
+  width: 0.65ch;
+  height: 1.1em;
+  margin-left: 2px;
+  vertical-align: -0.15em;
+  background: var(--accent-light);
+  animation: blink-caret 1s steps(1, end) infinite;
+}
+
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 0.5rem));
+  }
+}
+
+@keyframes blink-caret {
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-left,
+  .marquee-right {
+    animation: none;
+  }
+
+  .typing-caret {
+    animation: none;
+  }
+}

@@ -1,7 +1,26 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import LiveComparison from './LiveComparison';
 
 export default function Home() {
+  const testimonials = [
+    {
+      quote: 'SoulGen made my agent actually sound like a real person.',
+    },
+    {
+      quote: "Finally an AI tool that doesn't feel robotic. Love it.",
+    },
+    {
+      quote: "Free and actually useful. Surprised more people aren't talking about this.",
+    },
+    {
+      quote: 'My workflow changed completely since finding SoulGen. Game changer.',
+    },
+    {
+      quote: 'Simple, effective, and it works. What more do you need?',
+    },
+  ];
+
   return (
     <div className="min-h-screen hero-gradient">
       {/* Navigation */}
@@ -53,6 +72,10 @@ export default function Home() {
             </Link>
           </div>
         </div>
+      </section>
+
+      <section className="max-w-5xl mx-auto px-6 pb-24">
+        <LiveComparison />
       </section>
 
       {/* How it works */}
@@ -146,6 +169,23 @@ export default function Home() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="max-w-5xl mx-auto px-6 pb-24 overflow-hidden">
+        <div className="mb-8 text-center">
+          <h2 className="text-2xl font-semibold text-foreground mb-3">People are feeling it</h2>
+          <p className="text-sm text-muted-foreground">A few early reactions from real users of Soul Generator.</p>
+        </div>
+
+        <div className="testimonial-fade">
+          <div className="marquee-track marquee-left">
+            {[...testimonials, ...testimonials].map((item, index) => (
+              <div key={`${item.quote}-${index}`} className="testimonial-card glass-card flex items-center justify-center text-center">
+                <p className="text-sm text-foreground leading-relaxed">&ldquo;{item.quote}&rdquo;</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
