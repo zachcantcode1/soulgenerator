@@ -19,6 +19,7 @@
 
 # production
 /build
+/generatedsouls/
 
 # misc
 .DS_Store

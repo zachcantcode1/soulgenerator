@@ -324,10 +324,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   flex-shrink: 0;
 }
 
-.comparison-card {
-  min-height: 100%;
-}
-
 .comparison-card-active {
   border-color: rgba(94, 234, 212, 0.28);
   box-shadow: 0 0 0 1px rgba(94, 234, 212, 0.12), 0 0 36px rgba(13, 148, 136, 0.08);
