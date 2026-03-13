@@ -22,7 +22,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen page-swirl">
       {/* Navigation */}
       <nav className="flex items-center justify-between px-6 py-4 max-w-6xl mx-auto">
         <div className="flex items-center">
@@ -46,35 +46,39 @@ export default function Home() {
       </nav>
 
       {/* Hero */}
-      <section className="max-w-4xl mx-auto px-6 pt-24 pb-20 text-center">
-        <div className="animate-fade-in">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-card-border bg-card/50 text-xs text-muted-foreground mb-6">
-            <span className="w-2 h-2 rounded-full bg-success animate-pulse" />
-            Follows the SoulSpec 0.5 Standard
-          </div>
-          <h1 className="text-5xl sm:text-6xl font-bold text-foreground leading-tight mb-6">
-            Give your AI agent
+      <section className="landing-hero animate-fade-in">
+        <div className="max-w-6xl mx-auto px-6 pt-16 sm:pt-20 pb-32 sm:pb-40 text-center relative z-10">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-[1.05] mb-6">
+            Build an AI agent
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-light">
-              a soul
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground to-accent-light">
+              people can actually feel
             </span>
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-            Answer a few smart questions. We build the perfect <code className="text-accent-light bg-card px-1.5 py-0.5 rounded text-sm">SOUL.md</code> for you.
-            No blank-page anxiety. No manual formatting. Just your agent&apos;s identity, perfected.
+
+          <p className="text-base sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
+            Turn generic assistant behavior into a clear voice, reliable boundaries, and consistent output across every session.
           </p>
-          <div className="flex items-center justify-center gap-4">
+
+          <div className="flex items-center justify-center gap-4 mb-8">
             <Link
               href="/builder"
               className="px-6 py-3 bg-accent text-white rounded-xl font-medium hover:bg-accent/90 transition-all animate-pulse-glow text-base"
             >
               Build Your Soul →
             </Link>
+            <span className="text-xs text-muted-foreground">Free · no signup required</span>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-2">
+            <span className="chip !cursor-default">SOUL.md + soul.json</span>
+            <span className="chip !cursor-default">Live preview</span>
+            <span className="chip !cursor-default">Auto-save progress</span>
           </div>
         </div>
       </section>
 
-      <section className="max-w-5xl mx-auto px-6 pb-24">
+      <section className="max-w-6xl mx-auto px-6 pb-24 -mt-12 sm:-mt-16 relative z-10">
         <LiveComparison />
       </section>
 

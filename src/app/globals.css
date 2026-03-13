@@ -57,6 +57,112 @@ body {
     radial-gradient(ellipse at 20% 80%, rgba(0, 0, 0, 0.08) 0%, transparent 50%);
 }
 
+.hero-spotlight {
+  position: relative;
+}
+
+.hero-spotlight::before {
+  content: '';
+  position: absolute;
+  top: -5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: clamp(28rem, 60vw, 44rem);
+  background:
+    radial-gradient(45rem 24rem at 35% 30%, rgba(255, 255, 255, 0.06), transparent 72%),
+    radial-gradient(38rem 22rem at 75% 35%, rgba(255, 255, 255, 0.04), transparent 74%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.landing-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-swirl {
+  position: relative;
+  background-color: var(--background);
+  background-image:
+    radial-gradient(60rem 26rem at 50% 18%, rgba(255, 255, 255, 0.08), transparent 72%),
+    repeating-radial-gradient(
+      circle at 50% -12rem,
+      rgba(255, 255, 255, 0.08) 0,
+      rgba(255, 255, 255, 0.08) 1px,
+      transparent 1px,
+      transparent 14px
+    );
+  background-repeat: no-repeat, repeat;
+  background-size: 100% 44rem, auto;
+}
+
+.landing-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: none;
+  pointer-events: none;
+}
+
+.hero-arc {
+  position: absolute;
+  left: 50%;
+  bottom: -20rem;
+  transform: translateX(-50%);
+  width: min(170rem, 170vw);
+  height: min(78rem, 78vw);
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+    0 -80px 180px rgba(255, 255, 255, 0.05) inset;
+  background:
+    radial-gradient(ellipse at 50% 44%, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0) 70%),
+    repeating-radial-gradient(
+      ellipse at 50% 60%,
+      rgba(255, 255, 255, 0.09) 0,
+      rgba(255, 255, 255, 0.09) 1px,
+      transparent 1px,
+      transparent 14px
+    );
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .hero-arc {
+    bottom: -14rem;
+    width: 190vw;
+    height: 92vw;
+    opacity: 0.35;
+  }
+}
+
+.hero-art-shell {
+  position: relative;
+  border-radius: 20px;
+  padding: 0.75rem;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02)),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.06));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.hero-art-shell::after {
+  content: '';
+  position: absolute;
+  inset: 12% 10% -10% 10%;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.2), transparent 70%);
+  filter: blur(24px);
+  z-index: -1;
+}
+
+.hero-art-float {
+  animation: hero-float 6s ease-in-out infinite;
+}
+
 /* Glass card effect */
 .glass-card {
   background: var(--glass);
@@ -263,6 +369,17 @@ input[type="range"]::-webkit-slider-thumb:hover {
   }
 }
 
+@keyframes hero-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
 .animate-fade-in {
   animation: fadeIn 0.4s ease forwards;
 }
@@ -372,6 +489,10 @@ input[type="range"]::-webkit-slider-thumb:hover {
   }
 
   .typing-caret {
+    animation: none;
+  }
+
+  .hero-art-float {
     animation: none;
   }
 }
