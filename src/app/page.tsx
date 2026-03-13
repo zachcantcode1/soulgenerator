@@ -22,7 +22,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen hero-gradient">
+    <div className="min-h-screen bg-background">
       {/* Navigation */}
       <nav className="flex items-center justify-between px-6 py-4 max-w-6xl mx-auto">
         <div className="flex items-center">

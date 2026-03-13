@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0f;
+  --background: #2d2d2b;
   --foreground: #e8e8ed;
   --card: #12121a;
   --card-border: #1e1e2e;
   --card-hover: #1a1a28;
-  --accent: #0d9488;
-  --accent-light: #5eead4;
-  --accent-glow: rgba(13, 148, 136, 0.15);
+  --accent: #000000;
+  --accent-light: #d4d4d8;
+  --accent-glow: rgba(0, 0, 0, 0.2);
   --muted: #71717a;
   --muted-foreground: #a1a1aa;
   --success: #22c55e;
@@ -52,9 +52,9 @@ body {
 
 /* Animated gradient background */
 .hero-gradient {
-  background: radial-gradient(ellipse at 50% 0%, rgba(13, 148, 136, 0.12) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 50%, rgba(20, 184, 166, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 20% 80%, rgba(94, 234, 212, 0.04) 0%, transparent 50%);
+  background: radial-gradient(ellipse at 50% 0%, rgba(0, 0, 0, 0.2) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 50%, rgba(0, 0, 0, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(0, 0, 0, 0.08) 0%, transparent 50%);
 }
 
 /* Glass card effect */
@@ -67,7 +67,7 @@ body {
 
 /* Glow effect for accent elements */
 .glow {
-  box-shadow: 0 0 20px var(--accent-glow), 0 0 60px rgba(13, 148, 136, 0.05);
+  box-shadow: 0 0 20px var(--accent-glow), 0 0 60px rgba(0, 0, 0, 0.12);
 }
 
 /* Chip/tag styles */
@@ -259,7 +259,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
   }
 
   50% {
-    box-shadow: 0 0 30px rgba(13, 148, 136, 0.25);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.35);
   }
 }
 
@@ -325,8 +325,8 @@ input[type="range"]::-webkit-slider-thumb:hover {
 }
 
 .comparison-card-active {
-  border-color: rgba(94, 234, 212, 0.28);
-  box-shadow: 0 0 0 1px rgba(94, 234, 212, 0.12), 0 0 36px rgba(13, 148, 136, 0.08);
+  border-color: rgba(0, 0, 0, 0.45);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.22), 0 0 36px rgba(0, 0, 0, 0.18);
 }
 
 .comparison-card-dim {
