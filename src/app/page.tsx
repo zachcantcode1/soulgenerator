@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import LiveComparison from './LiveComparison';
+import ScrollReveal from './ScrollReveal';
+import FloatingParticlesBackground from './FloatingParticlesBackground';
 
 export default function Home() {
   const testimonials = [
@@ -22,12 +24,13 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen page-swirl">
+    <div className="min-h-screen bg-black">
+      <ScrollReveal />
       {/* Navigation */}
       <nav className="flex items-center justify-between px-6 py-4 max-w-6xl mx-auto">
         <div className="flex items-center">
           <Image
-            src="/sg.png"
+            src="/sg.svg"
             alt="Soul Generator logo"
             width={28}
             height={28}
@@ -46,44 +49,54 @@ export default function Home() {
       </nav>
 
       {/* Hero */}
-      <section className="landing-hero animate-fade-in">
-        <div className="max-w-6xl mx-auto px-6 pt-16 sm:pt-20 pb-32 sm:pb-40 text-center relative z-10">
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-[1.05] mb-6">
-            Build an AI agent
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground to-accent-light">
-              people can actually feel
-            </span>
-          </h1>
+      <section className="landing-hero animate-fade-in min-h-[calc(100vh-72px)] flex items-center">
+        <FloatingParticlesBackground
+          className="absolute inset-0 pointer-events-none opacity-90 bg-black"
+          particleCount={230}
+          mouseInfluence={140}
+          mouseStrength={0.03}
+        />
+        <div className="max-w-6xl mx-auto px-6 py-10 sm:py-14 w-full relative z-10">
+          <div className="grid grid-cols-1 xl:grid-cols-[1.05fr_1.25fr] gap-8 xl:gap-10 items-center">
+            <div className="text-left">
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-[1.05] mb-6">
+                Build an AI agent
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground to-accent-light">
+                  people can actually enjoy
+                </span>
+              </h1>
 
-          <p className="text-base sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
-            Turn generic assistant behavior into a clear voice, reliable boundaries, and consistent output across every session.
-          </p>
+              <p className="text-base sm:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-8">
+                Turn generic assistant behavior into a clear voice, reliable boundaries, and consistent output across every session.
+              </p>
 
-          <div className="flex items-center justify-center gap-4 mb-8">
-            <Link
-              href="/builder"
-              className="px-6 py-3 bg-accent text-white rounded-xl font-medium hover:bg-accent/90 transition-all animate-pulse-glow text-base"
-            >
-              Build Your Soul →
-            </Link>
-            <span className="text-xs text-muted-foreground">Free · no signup required</span>
-          </div>
+              <div className="flex flex-wrap items-center gap-4 mb-8">
+                <Link
+                  href="/builder"
+                  className="px-6 py-3 bg-accent text-white rounded-xl font-medium hover:bg-accent/90 transition-all animate-pulse-glow text-base"
+                >
+                  Build Your Soul →
+                </Link>
+                <span className="text-xs text-muted-foreground">Free · no signup required</span>
+              </div>
 
-          <div className="flex flex-wrap justify-center gap-2">
-            <span className="chip !cursor-default">SOUL.md + soul.json</span>
-            <span className="chip !cursor-default">Live preview</span>
-            <span className="chip !cursor-default">Auto-save progress</span>
+              <div className="flex flex-wrap gap-2">
+                <span className="chip !cursor-default">SOUL.md + soul.json</span>
+                <span className="chip !cursor-default">Live preview</span>
+                <span className="chip !cursor-default">Auto-save progress</span>
+              </div>
+            </div>
+
+            <div className="reveal-on-scroll reveal-right reveal-delay-1">
+              <LiveComparison />
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 pb-24 -mt-12 sm:-mt-16 relative z-10">
-        <LiveComparison />
-      </section>
-
       {/* How it works */}
-      <section className="max-w-5xl mx-auto px-6 pb-16">
+      <section className="max-w-5xl mx-auto px-6 pb-16 reveal-on-scroll reveal-up reveal-delay-1">
         <h2 className="text-2xl font-semibold text-center text-foreground mb-12">How it works</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
@@ -104,7 +117,7 @@ export default function Home() {
       </section>
 
       {/* What is SOUL.md */}
-      <section className="max-w-5xl mx-auto px-6 pb-20">
+      <section className="max-w-5xl mx-auto px-6 pb-20 reveal-on-scroll reveal-right reveal-delay-2">
         <div className="glass-card p-8 md:p-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {/* Left: Explanation */}
@@ -154,7 +167,7 @@ export default function Home() {
       </section>
 
       {/* Features */}
-      <section className="max-w-5xl mx-auto px-6 pb-24">
+      <section className="max-w-5xl mx-auto px-6 pb-24 reveal-on-scroll reveal-left reveal-delay-3">
         <h2 className="text-2xl font-semibold text-center text-foreground mb-12">Built for perfection</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {[
@@ -176,7 +189,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-5xl mx-auto px-6 pb-24 overflow-hidden">
+      <section className="max-w-5xl mx-auto px-6 pb-24 overflow-hidden reveal-on-scroll reveal-up reveal-delay-4">
         <div className="mb-8 text-center">
           <h2 className="text-2xl font-semibold text-foreground mb-3">People are feeling it</h2>
           <p className="text-sm text-muted-foreground">A few early reactions from real users of Soul Generator.</p>

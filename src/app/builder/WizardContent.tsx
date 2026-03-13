@@ -61,7 +61,7 @@ export default function WizardContent() {
 
     if (!state.isLoaded) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-background">
+            <div className="min-h-screen flex items-center justify-center bg-black">
                 <div className="text-muted-foreground">Loading...</div>
             </div>
         );
@@ -73,7 +73,7 @@ export default function WizardContent() {
     const preview = generateSoulMd(state.data);
 
     return (
-        <div className="min-h-screen h-screen bg-background flex flex-col">
+        <div className="min-h-screen h-screen bg-black flex flex-col">
             {/* Top bar */}
             <header className="border-b border-card-border px-4 py-3 flex items-center justify-between flex-shrink-0">
                 <div className="flex items-center gap-3">
@@ -146,7 +146,7 @@ export default function WizardContent() {
                     </div>
 
                     {/* Navigation buttons */}
-                    <div className="absolute bottom-0 left-0 right-0 border-t border-card-border px-6 py-4 flex items-center justify-between flex-shrink-0 bg-background/95 backdrop-blur z-10">
+                    <div className="absolute bottom-0 left-0 right-0 border-t border-card-border px-6 py-4 flex items-center justify-between flex-shrink-0 bg-black/95 backdrop-blur z-10">
                         <button
                             onClick={() => dispatch({ type: 'PREV_STEP' })}
                             disabled={isFirstStep}

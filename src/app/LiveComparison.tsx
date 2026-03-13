@@ -76,52 +76,33 @@ export default function LiveComparison() {
     );
 
     return (
-        <div className="grid grid-cols-1 xl:grid-cols-[1.15fr_1.85fr] gap-6 items-stretch">
-            <div className="glass-card p-6 md:p-7 flex flex-col justify-between h-full">
-                <div>
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-card-border bg-card/50 text-xs text-muted-foreground mb-5">
-                        Live comparison
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 h-full items-stretch">
+            {cards.map((card) => (
+                <div
+                    key={card.key}
+                    className="glass-card comparison-card-active p-5 md:p-6 transition-all duration-500 h-full flex flex-col"
+                >
+                    <div className="mb-2 min-h-[6.75rem]">
+                        <div className="flex flex-col gap-2">
+                            <h3 className="text-base font-semibold text-foreground">{card.title}</h3>
+                        </div>
+                        <p className="text-xs text-muted-foreground mt-1.5">{card.description}</p>
                     </div>
-                    <h2 className="text-2xl font-semibold text-foreground mb-3">See the difference in voice</h2>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-5">
-                        Same prompt. Two completely different responses. One sounds generic. The other sounds like an agent with an actual point of view.
-                    </p>
-                </div>
 
-                <div className="rounded-2xl border border-card-border bg-background/70 p-4">
-                    <p className="text-xs uppercase tracking-[0.18em] text-muted mb-2">Prompt</p>
-                    <p className="text-sm text-foreground leading-relaxed">{PROMPT}</p>
-                </div>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 h-full items-stretch">
-                {cards.map((card) => (
-                    <div
-                        key={card.key}
-                        className="glass-card comparison-card-active p-5 md:p-6 transition-all duration-500 h-full flex flex-col"
-                    >
-                        <div className="mb-2 min-h-[6.75rem]">
-                            <div className="flex flex-col gap-2">
-                                <h3 className="text-base font-semibold text-foreground">{card.title}</h3>
-                            </div>
-                            <p className="text-xs text-muted-foreground mt-1.5">{card.description}</p>
-                        </div>
-
-                        <div className="mb-1.5">
-                            <span className="inline-flex text-[11px] font-medium px-2.5 py-1 rounded-full border border-card-border bg-card text-accent-light max-w-full whitespace-normal sm:whitespace-nowrap">
-                                {card.badge}
-                            </span>
-                        </div>
-
-                        <div className="rounded-2xl border border-card-border bg-background/75 p-4 min-h-56 flex-1">
-                            <p className="text-sm leading-relaxed text-foreground whitespace-pre-wrap">
-                                {card.text}
-                                {card.showCaret && <span className="typing-caret" aria-hidden="true" />}
-                            </p>
-                        </div>
+                    <div className="mb-1.5">
+                        <span className="inline-flex text-[11px] font-medium px-2.5 py-1 rounded-full border border-card-border bg-card text-accent-light max-w-full whitespace-normal sm:whitespace-nowrap">
+                            {card.badge}
+                        </span>
                     </div>
-                ))}
-            </div>
+
+                    <div className="rounded-2xl border border-card-border bg-background/75 p-4 min-h-56 flex-1">
+                        <p className="text-sm leading-relaxed text-foreground whitespace-pre-wrap">
+                            {card.text}
+                            {card.showCaret && <span className="typing-caret" aria-hidden="true" />}
+                        </p>
+                    </div>
+                </div>
+            ))}
         </div>
     );
 }
