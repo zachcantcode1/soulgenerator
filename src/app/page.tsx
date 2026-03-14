@@ -63,8 +63,8 @@ export default function Home() {
           mouseStrength={0.03}
         />
         <div className="max-w-6xl mx-auto px-6 py-10 sm:py-14 w-full relative z-10">
-          <div className="grid grid-cols-1 xl:grid-cols-[1.05fr_1.25fr] gap-8 xl:gap-10 items-center">
-            <div className="text-left">
+          <div className="grid grid-cols-1 xl:grid-cols-[1.05fr_1.25fr] gap-8 xl:gap-10 items-stretch">
+            <div className="text-left h-full flex flex-col justify-center">
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-[1.05] mb-6">
                 Build an AI agent
                 <br />
@@ -72,10 +72,6 @@ export default function Home() {
                   people can actually enjoy
                 </span>
               </h1>
-
-              <p className="text-base sm:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-8">
-                Turn generic assistant behavior into a clear voice, reliable boundaries, and consistent output across every session.
-              </p>
 
               <div className="flex flex-wrap items-center gap-4 mb-8">
                 <Link
@@ -92,14 +88,9 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="flex flex-wrap gap-2">
-                <span className="chip !cursor-default">SOUL.md + soul.json</span>
-                <span className="chip !cursor-default">Live preview</span>
-                <span className="chip !cursor-default">Auto-save progress</span>
-              </div>
             </div>
 
-            <div className="reveal-on-scroll reveal-right reveal-delay-1">
+            <div className="reveal-on-scroll reveal-right reveal-delay-1 h-full">
               <LiveComparison />
             </div>
           </div>
