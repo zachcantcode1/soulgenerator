@@ -38,7 +38,13 @@ export default function Home() {
             priority
           />
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center gap-3">
+          <Link
+            href="/signup"
+            className="px-4 py-2 bg-accent text-white rounded-lg text-sm font-medium hover:bg-accent/90 transition-all glow"
+          >
+            Sign Up
+          </Link>
           <Link
             href="/builder"
             className="px-4 py-2 bg-accent text-white rounded-lg text-sm font-medium hover:bg-accent/90 transition-all glow"
@@ -78,7 +84,12 @@ export default function Home() {
                 >
                   Build Your Soul →
                 </Link>
-                <span className="text-xs text-muted-foreground">Free · no signup required</span>
+                <Link
+                  href="/signup"
+                  className="px-6 py-3 bg-accent text-white rounded-xl font-medium hover:bg-accent/90 transition-all animate-pulse-glow text-base"
+                >
+                  Sign Up
+                </Link>
               </div>
 
               <div className="flex flex-wrap gap-2">
